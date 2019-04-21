@@ -12,7 +12,9 @@ categories: crack
 首先看一下文件
 
 ![](/image/crack/reverse-esp-and-getfilesize/1.png)
+
 peid查壳：
+
 ![](/image/crack/reverse-esp-and-getfilesize/2.png)
 
 拖入od观察到寄存器情况
@@ -20,24 +22,41 @@ peid查壳：
 ![](/image/crack/reverse-esp-and-getfilesize/3.png)
 
 F8单步运行后变化
+
 ![](/image/crack/reverse-esp-and-getfilesize/4.png)
+
 证明可以用esp定律脱壳
+
 在寄存器esp的值上右键，在数据窗口中跟随
+
 ![](/image/crack/reverse-esp-and-getfilesize/5.png)
+
 选中数据窗口中的值，右键设置硬件访问断点
+
 ![](/image/crack/reverse-esp-and-getfilesize/6.png)
+
 F9运行，然后F8，直到反汇编区出现变化
+
 ![](/image/crack/reverse-esp-and-getfilesize/7.png)
+
 右键->分析->从模块中删除分析
+
 ![](/image/crack/reverse-esp-and-getfilesize/8.png)
+
 右键用ODdump脱壳
+
 ![](/image/crack/reverse-esp-and-getfilesize/9.png)
+
 保存文件。此时壳已经脱掉
+
 ![](/image/crack/reverse-esp-and-getfilesize/10.png)
+
 但是双击后没有反应，因为有文件自校验，实际上是文件打开后又关闭掉
 
 ### 2.绕过文件大小自校验
+
 将脱壳后的新程序拖入OD，设置API断点
+
 ![](/image/crack/reverse-esp-and-getfilesize/11.png)
 
 ![](/image/crack/reverse-esp-and-getfilesize/12.png)
